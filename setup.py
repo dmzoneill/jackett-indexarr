@@ -15,7 +15,7 @@ entry_points = \
 
 setup_kwargs = {
     'name': 'jackett-indexerarr',
-    'version': '0.15',
+    'version': '0.16',
     'description': '',
     'long_description': '# Python app to configure sonarr, lidarr & radarr with jackett configured trackers\n\n## Install\n```console\npip install jackett-indexerarr\n```\n\n## How to use\n```console\njackett-indexerarr ```yaml\nstages:\n  - publish\n\nproduction:\n  image: python:3.8.3-buster\n  stage: publish\n  script:\n    - pip install jackett-indexerarr\n    - jacket-indexerarr\n```\n\n## Support\nFeel free to submit a pull request',
     'author': 'David O Neill',

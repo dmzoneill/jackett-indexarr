@@ -16,7 +16,8 @@ export radarr_db="/home/to/radarr/radarr.db"
 export lidarr_db="/home/to/lidarr/lidarr.db"
 ```
 
-execute it
+Execute it
 ```
-python setup-arr-indexers.py
+pip install jackett-indexerarr
+jackett-indexerarr
 ```

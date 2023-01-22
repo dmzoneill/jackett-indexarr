@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: jackett-indexerarr
+Version: 0.15
+Summary: 
+Home-page: https://github.com/dmzoneill/jackett-indexerarr
+Author: David O Neill
+Author-email: dmz.oneill@gmail.com
+Requires-Python: >=3.8,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: requests
+Requires-Dist: typer
+Project-URL: Repository, https://github.com/dmzoneill/jackett-indexerarr
+Description-Content-Type: text/markdown
+
+# Gnome Extension publisher
+Python app to configure sonarr, lidarr & radarr with jackett configured trackers
+
+## Install
+```console
+pip install jackett-indexerarr
+```
+
+## How to use
+```console
+jackett-indexerarr
+```
+
+```yaml
+stages:
+  - publish
+
+production:
+  image: python:3.8.3-buster
+  stage: publish
+  script:
+    - pip install jackett-indexerarr
+    - jackett-indexerarr
+  only:
+    - tags
+```
+
+## Support
+Feel free to submit a pull request

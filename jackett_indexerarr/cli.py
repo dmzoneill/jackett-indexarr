@@ -24,21 +24,21 @@ def update(
             "You need to define jackett_cookie, which you can get from a browser session\n\n"
         )
         print('  export jackett_cookie=".........."')
-        print('  Or')
+        print("  Or")
         print('  --jackett_cookie="............."')
         return
 
     if jackett_endpoint is None:
         print("You need to define jackett_endpoint\n\n")
         print('  export jackett_endpoint="http://your-jacket:port"')
-        print('  Or')
+        print("  Or")
         print('  --jackett_endpoint="http://your-jacket:port"')
         return
 
     if jackett_api_key is None:
         print("You need to define jackett_api_key\n\n")
         print('  export jackett_api_key="............."')
-        print('  Or')
+        print("  Or")
         print('  --jackett_api_key="............."')
         return
 

@@ -62,11 +62,11 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           tags: true
 
-  build-gnome-extension-publisher:
+  publish:
     if: >-
       github.event_name == 'push' || 
       github.event.pull_request.merged == true
-    name: Build publisher
+    name: Publish
     needs: bump-version
     runs-on: ubuntu-latest
     steps:

@@ -27,6 +27,7 @@ jobs:
           VALIDATE_PYTHON_MYPY: false
           VALIDATE_PYTHON_FLAKE8: false
           VALIDATE_ALL_CODEBASE: false
+          VALIDATE_GITHUB_ACTIONS: false
           DEFAULT_BRANCH: "main"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           

@@ -25,17 +25,18 @@ jobs:
           VALIDATE_ALL_CODEBASE: false
           DEFAULT_BRANCH: "main"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-  build-gnome-extension-publisher:
+          
+  bump-version:
     if: >-
       github.event_name == 'push' || 
       github.event.pull_request.merged == true
-    name: Build publisher
+    name: Bump Version
     needs: run-lint
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+        
       - name: Filter
         uses: dorny/paths-filter@v2
         id: changes
@@ -46,6 +47,43 @@ jobs:
               - 'setup.py'
               - 'pyproject.toml'
               - 'PKG-INFO'
+              
+      - name: Bump              
+        run: |-
+          version=$(grep '^Version:' PKG-INFO | sed 's/Version: //')
+          next=$(echo $version | awk -F. '/[0-9]+\./{$NF++;print}' OFS=.)
+          sed "s/$version/$next/" -i PKG-INFO
+          sed "s/$version/$next/" -i pyproject.toml
+          sed "s/$version/$next/" -i setup.py          
+                                  
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          tags: true
+
+  build-gnome-extension-publisher:
+    if: >-
+      github.event_name == 'push' || 
+      github.event.pull_request.merged == true
+    name: Build publisher
+    needs: bump-version
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Filter
+        uses: dorny/paths-filter@v2
+        id: changes
+        with:
+          filters: |
+            src:
+              - 'jackett_indexerarr/**'
+              - 'setup.py'
+              - 'pyproject.toml'
+              - 'PKG-INFO'
+  
       - name: Build
         if: steps.changes.outputs.src == 'true'
         run: |-
@@ -53,6 +91,7 @@ jobs:
           python3 -m pip install --upgrade build
           python3 -m pip install --upgrade twine
           python3 -m build
+    
       - name: Upload step
         if: steps.changes.outputs.src == 'true'
         run: |-

@@ -51,15 +51,15 @@ jobs:
               
       - name: Bump              
         run: |-
-          # shellcheck disable=SC2035
+          # shellcheck disable=SC2155
           export version=$(grep "^Version:" PKG-INFO | sed "s/Version: //")
-          # shellcheck disable=SC2035
+          # shellcheck disable=SC2155
           export next=$(echo $version | awk -F. '/[0-9]+\./{$NF++;print}' OFS=.)
-          # shellcheck disable=SC2035
+          # shellcheck disable=SC2155
           sed "s/$version/$next/" -i PKG-INFO
-          # shellcheck disable=SC2035
+          # shellcheck disable=SC2155
           sed "s/$version/$next/" -i pyproject.toml
-          # shellcheck disable=SC2035
+          # shellcheck disable=SC2155
           sed "s/$version/$next/" -i setup.py
                                   
       - name: Push changes

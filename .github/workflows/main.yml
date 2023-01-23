@@ -16,6 +16,9 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Disable spellcheck
+        run: echo "disable=SC2086,SC2155" > ~/.shellcheckrc
+
       - name: Lint Code Base
         uses: github/super-linter@v4
         env:
@@ -50,17 +53,12 @@ jobs:
               - 'PKG-INFO'
               
       - name: Bump       
-        # shellcheck disable=SC2086
+        # shellcheck disable=SC2086,SC2155
         run: |-
-          # shellcheck disable=SC2155
           export version=$(grep "^Version:" PKG-INFO | sed "s/Version: //")
-          # shellcheck disable=SC2155
           export next=$(echo $version | awk -F. '/[0-9]+\./{$NF++;print}' OFS=.)
-          # shellcheck disable=SC2155
           sed "s/$version/$next/" -i PKG-INFO
-          # shellcheck disable=SC2155
           sed "s/$version/$next/" -i pyproject.toml
-          # shellcheck disable=SC2155
           sed "s/$version/$next/" -i setup.py
                                   
       - name: Push changes

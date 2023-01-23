@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "jackett-indexarr"
-version = "0.16.3"
+version = "0.16.4"
 description = ""
 readme = "README.md"
 repository = "https://github.com/dmzoneill/jackett-indexarr"

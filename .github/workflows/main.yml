@@ -51,11 +51,16 @@ jobs:
               
       - name: Bump              
         run: |-
-          version=$(grep '^Version:' PKG-INFO | sed 's/Version: //')
-          next=$(echo $version | awk -F. '/[0-9]+\./{$NF++;print}' OFS=.)
+          # shellcheck disable=SC2035
+          export version=$(grep "^Version:" PKG-INFO | sed "s/Version: //")
+          # shellcheck disable=SC2035
+          export next=$(echo $version | awk -F. '/[0-9]+\./{$NF++;print}' OFS=.)
+          # shellcheck disable=SC2035
           sed "s/$version/$next/" -i PKG-INFO
+          # shellcheck disable=SC2035
           sed "s/$version/$next/" -i pyproject.toml
-          sed "s/$version/$next/" -i setup.py          
+          # shellcheck disable=SC2035
+          sed "s/$version/$next/" -i setup.py
                                   
       - name: Push changes
         uses: ad-m/github-push-action@master

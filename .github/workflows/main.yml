@@ -54,8 +54,8 @@ jobs:
               
       - name: Bump       
         run: |-
-          version=$(grep "^Version:" PKG-INFO | sed "s/Version: //")
-          next=$(echo $version | awk -F. '/[0-9]+\./{$NF++;print}' OFS=.)
+          version="$(grep \"^Version:\" PKG-INFO | sed \"s/Version: //\")"
+          next="$(echo $version | awk -F. '/[0-9]+\./{$NF++;print}' OFS=.)"
           sed "s/$version/$next/" -i PKG-INFO
           sed "s/$version/$next/" -i pyproject.toml
           sed "s/$version/$next/" -i setup.py

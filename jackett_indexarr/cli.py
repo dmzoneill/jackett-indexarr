@@ -1,4 +1,3 @@
-# test comment
 import os
 from shutil import rmtree
 from typing import Optional

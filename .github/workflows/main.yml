@@ -79,7 +79,6 @@ jobs:
         uses: actions/checkout@v2
   
       - name: Build
-        if: steps.changes.outputs.src == 'true'
         run: |-
           pip3 install trove-classifiers ptyprocess msgpack lockfile distlib tomlkit tomli shellingham rapidfuzz pyrsistent poetry-core platformdirs pkginfo pexpect packaging jeepney jaraco.classes filelock dulwich crashtest cachecontrol virtualenv SecretStorage jsonschema cleo keyring poetry-plugin-export poetry bumpver
           python3 -m pip install --upgrade build
@@ -87,7 +86,6 @@ jobs:
           python3 -m build
     
       - name: Upload step
-        if: steps.changes.outputs.src == 'true'
         run: |-
           # shellcheck disable=SC2035
           printf "[pypi]\n  username = __token__\n  password = ${{ secrets.PYPI_TOKEN }}" > ~/.pypirc

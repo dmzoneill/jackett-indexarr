@@ -53,10 +53,9 @@ jobs:
               - 'PKG-INFO'
               
       - name: Bump       
-        # shellcheck disable=SC2086,SC2155
         run: |-
-          export version=$(grep "^Version:" PKG-INFO | sed "s/Version: //")
-          export next=$(echo $version | awk -F. '/[0-9]+\./{$NF++;print}' OFS=.)
+          version=$(grep "^Version:" PKG-INFO | sed "s/Version: //")
+          next=$(echo $version | awk -F. '/[0-9]+\./{$NF++;print}' OFS=.)
           sed "s/$version/$next/" -i PKG-INFO
           sed "s/$version/$next/" -i pyproject.toml
           sed "s/$version/$next/" -i setup.py

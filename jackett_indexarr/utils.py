@@ -1,6 +1,7 @@
-import requests
-import sqlite3
 import json
+import sqlite3
+
+import requests
 
 
 def configure(

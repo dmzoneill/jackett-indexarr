@@ -1,9 +1,9 @@
 [tool.poetry]
-name = "jackett-indexerarr"
+name = "jackett-indexarr"
 version = "0.16.1"
 description = ""
 readme = "README.md"
-repository = "https://github.com/dmzoneill/jackett-indexerarr"
+repository = "https://github.com/dmzoneill/jackett-indexarr"
 authors = ["David O Neill <dmz.oneill@gmail.com>"]
 
 
@@ -16,7 +16,7 @@ typer = "*"
 pytest = "^6.0.2"
 
 [tool.poetry.scripts]
-jackett-indexerarr = "jackett_indexerarr.cli:app"
+jackett-indexarr = "jackett_indexarr.cli:app"
 
 [build-system]
 requires = ["poetry>=0.12"]

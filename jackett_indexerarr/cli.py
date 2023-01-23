@@ -4,7 +4,7 @@ from shutil import rmtree
 from typing import Optional
 
 import typer
-from jackett_indexerarr.utils import configure
+from jackett_indexarr.utils import configure
 
 app = typer.Typer()
 

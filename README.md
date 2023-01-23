@@ -18,6 +18,6 @@ export lidarr_db="/home/to/lidarr/lidarr.db"
 
 Execute it
 ```
-pip install jackett-indexerarr
-jackett-indexerarr
+pip install jackett-indexarr
+jackett-indexarr
 ```

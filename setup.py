@@ -1,24 +1,24 @@
 # -*- coding: utf-8 -*-
 from setuptools import setup
 
-packages = ["jackett_indexerarr"]
+packages = ["jackett_indexarr"]
 
 package_data = {"": ["*"]}
 
 install_requires = ["requests", "typer"]
 
-entry_points = {"console_scripts": ["jackett-indexerarr = jackett_indexerarr.cli:app"]}
+entry_points = {"console_scripts": ["jackett-indexarr = jackett_indexarr.cli:app"]}
 
 setup_kwargs = {
-    "name": "jackett-indexerarr",
+    "name": "jackett-indexarr",
     "version": "0.16.1",
     "description": "",
-    "long_description": "# Python app to configure sonarr, lidarr & radarr with jackett configured trackers\n\n## Install\n```console\npip install jackett-indexerarr\n```\n\n## How to use\n```console\njackett-indexerarr ```yaml\nstages:\n  - publish\n\nproduction:\n  image: python:3.8.3-buster\n  stage: publish\n  script:\n    - pip install jackett-indexerarr\n    - jacket-indexerarr\n```\n\n## Support\nFeel free to submit a pull request",
+    "long_description": "# Python app to configure sonarr, lidarr & radarr with jackett configured trackers\n\n## Install\n```console\npip install jackett-indexarr\njackett-indexarr```\n\n## How to use\n\n## Support\nFeel free to submit a pull request",
     "author": "David O Neill",
     "author_email": "dmz.oneill@gmail.com",
     "maintainer": None,
     "maintainer_email": None,
-    "url": "https://github.com/dmzoneill/jackett-indexerarr",
+    "url": "https://github.com/dmzoneill/jackett-indexarr",
     "packages": packages,
     "package_data": package_data,
     "install_requires": install_requires,

@@ -11,7 +11,7 @@ entry_points = {"console_scripts": ["jackett-indexarr = jackett_indexarr.cli:app
 
 setup_kwargs = {
     "name": "jackett-indexarr",
-    "version": "0.16.2",
+    "version": "0.16.3",
     "description": "",
     "long_description": "# Python app to configure sonarr, lidarr & radarr with jackett configured trackers\n\n## Install\n```console\npip install jackett-indexarr\njackett-indexarr```\n\n## How to use\n\n## Support\nFeel free to submit a pull request",
     "author": "David O Neill",

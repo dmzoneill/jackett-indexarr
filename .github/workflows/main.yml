@@ -13,5 +13,3 @@ jobs:
   cicd:
     secrets: inherit
     uses: dmzoneill/dmzoneill/.github/workflows/dispatch.yaml@main
-    with:
-      chrome-extension: "nndmepnfkempbbjjfhbogcidgfckakmb"

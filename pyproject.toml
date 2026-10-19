@@ -13,7 +13,7 @@ requests = "*"
 typer = "*"
 
 [tool.poetry.dev-dependencies]
-pytest = "^6.0.2"
+pytest = "^8.3.5"
 
 [tool.poetry.scripts]
 jackett-indexarr = "jackett_indexarr.cli:app"

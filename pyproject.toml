@@ -8,12 +8,14 @@ authors = ["David O Neill <dmz.oneill@gmail.com>"]
 
 
 [tool.poetry.dependencies]
-python = "^3.8"
-requests = "*"
+python = "^3.10"
+requests = ">=2.33.0"
 typer = "*"
+urllib3 = ">=2.8.0"
+pygments = ">=2.20.0"
 
 [tool.poetry.dev-dependencies]
-pytest = "^8.3.5"
+pytest = ">=9.0.3"
 
 [tool.poetry.scripts]
 jackett-indexarr = "jackett_indexarr.cli:app"

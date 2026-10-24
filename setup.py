@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Packaging configuration for jackett-indexarr."""
 
 from setuptools import setup
